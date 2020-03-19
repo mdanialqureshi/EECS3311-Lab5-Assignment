@@ -8,10 +8,10 @@ class
 	ETF_UNDO
 inherit
 	ETF_UNDO_INTERFACE
-		redefine undo end
 create
 	make
 feature -- command
+
 	undo
     	do
 
@@ -22,8 +22,6 @@ feature -- command
 			if model.board.history.on_item then
 				model.board.history.item.undo
 				model.board.history.back
-
-
 				model.set_message ("ok")
 			else
 				model.set_message ("no more to undo")

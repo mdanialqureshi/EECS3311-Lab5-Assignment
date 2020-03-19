@@ -22,8 +22,8 @@ feature {NONE} -- create
 			create implementation.make_filled ('_',size, size)
 			create king_position.make (1, 1)
 			implementation.put ('K', 1, 1)
-			create bishop_position.make (size, size)
-			implementation.put ('B', size, size)
+			create knight_position.make (size, size)
+			implementation.put ('N', size, size)
 			create history.make
 		end
 
@@ -46,7 +46,7 @@ feature  -- game started
 feature -- positions
 
     king_position: SQUARE
-    bishop_position: SQUARE
+    knight_position: SQUARE
 
     move_king(a_square: SQUARE)
     	do
@@ -55,8 +55,11 @@ feature -- positions
 			king_position := a_square
     	end
 
-    move_bishop(a_square: SQUARE)
+    move_knight(a_square: SQUARE)
     	do
+    		implementation.put ('_', knight_position.x, knight_position.y)
+    		implementation.put ('N', a_square.x, a_square.y)
+			knight_position := a_square
     		-- To Do
     	end
 
