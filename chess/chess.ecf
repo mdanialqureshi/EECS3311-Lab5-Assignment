@@ -13,6 +13,7 @@
 		</option>
 		<setting name="dead_code_removal" value="feature"/>
 		<capability>
+			<catcall_detection support="none"/>
 			<concurrency support="scoop"/>
 			<void_safety support="all" use="all"/>
 		</capability>
@@ -41,4 +42,3 @@
 		<cluster name="root" location=".\root\" recursive="true"/>
 	</target>
 </system>
-
