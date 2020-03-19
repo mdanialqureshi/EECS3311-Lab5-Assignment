@@ -1,0 +1,19 @@
+-- testing trying to leave board
+move_knight([5,3])
+play(7)
+move_knight([5, 3])
+move_knight([8,7])
+move_knight([7,8])
+move_king([0,1])
+move_king([1,0])
+undo
+undo
+redo
+redo
+redo
+redo
+undo
+undo
+
+
+

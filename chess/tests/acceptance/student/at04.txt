@@ -1,0 +1,36 @@
+-- testing collision
+move_knight([5,3])
+play(7)
+move_knight([5, 3])
+move_knight([8,7])
+move_knight([7,8])
+move_king([0,1])
+move_king([1,0])
+undo
+undo
+redo
+redo
+redo
+redo
+undo
+undo
+move_knight([5, 3])
+move_knight([8,7])
+move_knight([7,8])
+move_king([0,1])
+move_king([1,0])
+move_knight([5,6])
+move_king([2,2])
+move_king([3,3])
+move_knight([4,4])
+move_king([4,4])
+undo
+redo
+undo
+redo
+redo
+undo
+move_king([3,4])
+move_king([3,5])
+move_knight([3,5])
+
