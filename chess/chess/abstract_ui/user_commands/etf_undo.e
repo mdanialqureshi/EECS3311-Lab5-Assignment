@@ -20,7 +20,6 @@ feature -- command
 			end
 
 			if model.board.history.on_item then
-		--		model.board.history.item.undo
 				model.undo
 				model.board.history.back
 				model.set_message ("ok")

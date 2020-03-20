@@ -25,9 +25,6 @@ feature {NONE} -- create
 			create knight_position.make (size, size)
 			implementation.put ('N', size, size)
 			create history.make
-			create king_old_position.make (1, 1)
-			create knight_old_position.make (1, 1)
-
 		end
 
 feature {MOVE} -- implementation
@@ -49,19 +46,7 @@ feature  -- game started
 feature -- positions
 
     king_position: SQUARE
-    king_old_position : SQUARE assign set_old_king_position
     knight_position: SQUARE
-    knight_old_position : SQUARE assign set_old_knight_position
-
-    set_old_king_position(old_pos : SQUARE)
-    	do
-			king_old_position := old_pos
-    	end
-
-    set_old_knight_position(old_pos : SQUARE)
-    	do
-			knight_old_position := old_pos
-    	end
 
     move_king(a_square: SQUARE)
     	do

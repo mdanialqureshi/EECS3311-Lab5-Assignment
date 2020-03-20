@@ -26,12 +26,10 @@ feature {NONE} -- constructor
 
 	make(a_new_position: SQUARE)
 		do
---			old_position := board.king_position
 			position := a_new_position
 		end
 
 feature -- queries
---		old_position: SQUARE
 		position: SQUARE
 
 	directions: ARRAY[TUPLE[x: INTEGER; y: INTEGER]]
@@ -43,19 +41,8 @@ feature -- commands
 
 	execute
 		do
-				board.move_king	 (position)
+			board.move_king (position)
 		end
-
---	undo
---		do
---				board.move_king (old_position)
---		end
-
---	redo
---		do
-----			board.history.forth
---			execute
---		end
 
 feature
 

@@ -23,7 +23,6 @@ feature -- command
 
 			-- redo
 			if model.board.history.on_item then
---				model.board.history.item.redo
 				model.redo
 				model.set_message ("ok")
 			else
