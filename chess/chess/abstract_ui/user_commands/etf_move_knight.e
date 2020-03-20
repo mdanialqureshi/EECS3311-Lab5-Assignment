@@ -20,21 +20,20 @@ feature -- command
 			l_x,l_y: INTEGER
 			mn: MOVE_KNIGHT
 			moves: ARRAY[SQUARE]
-			movement : TUPLE[x_old:INTEGER;y_old:INTEGER;x_new:INTEGER;y_new:INTEGER;char:CHARACTER]
+			movement : KNIGHT_MEMENTO
     	do
     		-- create move mn
 			old_square := model.board.knight_position
 			l_x := square.x.as_integer_32
 			l_y := square.y.as_integer_32
 			create new_square.make (l_x, l_y)
-			create mn.make (new_square)
-			create movement.default_create
-			movement := [old_square.x,old_square.y,l_x,l_y,'N']
+			create mn.make
+			create movement.make (old_square.x,old_square.y,l_x,l_y) --create memento object for undo redo
 			moves := mn.moves (old_square.x, old_square.y)
 			if moves.has (new_square) then
-				model.board.history.extend_history (movement)
+				model.history.extend_history (movement)
 				model.set_message ("ok")
-				mn.execute
+				movement.execute (model.board, new_square)
 			else
 				model.set_message ("invalid move")
 			end

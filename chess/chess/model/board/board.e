@@ -24,7 +24,6 @@ feature {NONE} -- create
 			implementation.put ('K', 1, 1)
 			create knight_position.make (size, size)
 			implementation.put ('N', size, size)
-			create history.make
 		end
 
 feature {MOVE} -- implementation
@@ -63,8 +62,6 @@ feature -- positions
     		-- To Do
     	end
 
-feature -- history
- 	history: HISTORY
 
 feature -- out
 

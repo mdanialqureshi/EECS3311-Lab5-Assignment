@@ -24,24 +24,16 @@ create
 
 feature {NONE} -- constructor
 
-	make(a_new_position: SQUARE)
+	make
 		do
-			position := a_new_position
+
 		end
 
 feature -- queries
-		position: SQUARE
 
 	directions: ARRAY[TUPLE[x: INTEGER; y: INTEGER]]
 		do
 			Result := <<[2, 1], [1,2], [ -1, 2], [ -2, 1], [-2, -1], [-1, -2], [1, -2], [2, -1]>>
-		end
-
-feature -- commands
-
-	execute
-		do
-			board.move_knight	 (position)
 		end
 
 feature

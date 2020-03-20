@@ -25,7 +25,7 @@ feature{NONE}
 	board: BOARD
 			-- access board via singleton
 		local
-			ma: ETF_MODEL_ACCESS
+			ma: GAME_ACCESS
 		once
 			Result := ma.m.board
 		end

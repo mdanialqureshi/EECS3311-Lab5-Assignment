@@ -17,7 +17,7 @@ feature{NONE}
 	board: BOARD
 			-- access board via singleton
 		local
-			ma: ETF_MODEL_ACCESS
+			ma: GAME_ACCESS
 		once
 			Result := ma.m.board
 		end
@@ -65,10 +65,4 @@ feature -- queries
 			end
 			Result.compare_objects
 		end
-
-feature -- deferred commands
-	execute
-		deferred
-		end
-
 end

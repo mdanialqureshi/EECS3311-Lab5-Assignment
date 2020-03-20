@@ -15,15 +15,15 @@ feature -- command
     	do
 			-- forth
 			if
-				model.board.history.before
-				or not model.board.history.after
+				model.history.before
+				or not model.history.after
 			then
-				model.board.history.forth
+				model.history.forth
 			end
 
 			-- redo
-			if model.board.history.on_item then
-				model.redo
+			if model.history.on_item then
+				model.history.item.redo (model.board)
 				model.set_message ("ok")
 			else
 				model.set_message ("nothing to redo")

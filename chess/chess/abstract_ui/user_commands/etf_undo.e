@@ -15,13 +15,13 @@ feature -- command
 	undo
     	do
 
-			if model.board.history.after then
-				model.board.history.back
+			if model.history.after then
+				model.history.back
 			end
 
-			if model.board.history.on_item then
-				model.undo
-				model.board.history.back
+			if model.history.on_item then
+				model.history.item.undo (model.board)
+				model.history.back
 				model.set_message ("ok")
 			else
 				model.set_message ("no more to undo")
