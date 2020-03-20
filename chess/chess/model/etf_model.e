@@ -44,12 +44,45 @@ feature -- message
 			message := a_message
 		end
 
-feature -- out
+feature -- commands
 	reset
 			-- Reset model state.
 		do
 			make
 		end
+
+	undo
+		local
+			cur_item : TUPLE[x_old:INTEGER;y_old:INTEGER;x_new:INTEGER;y_new:INTEGER;char:CHARACTER]
+		do
+			cur_item := board.history.item
+
+			if cur_item.char ~ 'K' then
+				board.move_king (create {SQUARE}.make (cur_item.x_old, cur_item.y_old))
+			elseif cur_item.char ~ 'N' then
+				board.move_knight (create {SQUARE}.make (cur_item.x_old, cur_item.y_old))
+			end
+
+		end
+
+
+	redo
+		local
+			cur_item : TUPLE[x_old:INTEGER;y_old:INTEGER;x_new:INTEGER;y_new:INTEGER;char:CHARACTER]
+		do
+			cur_item := board.history.item
+
+			if cur_item.char ~ 'K' then
+				board.move_king (create {SQUARE}.make (cur_item.x_new, cur_item.y_new))
+
+			elseif cur_item.char ~ 'N' then
+				board.move_knight (create {SQUARE}.make (cur_item.x_new, cur_item.y_new))
+			end
+
+		end
+
+
+feature -- out
 
 	out : STRING
 			-- obtain board layout from board.out

@@ -13,16 +13,16 @@ create
 feature{NONE} -- create
 	make
 		do
-			create {ARRAYED_LIST[MOVE]}history.make (10)
+			create {ARRAYED_LIST[TUPLE[INTEGER,INTEGER,INTEGER,INTEGER,CHARACTER]]}history.make (10)
 		end
 
-	history: LIST[MOVE]
+	history: LIST[TUPLE[x_old:INTEGER;y_old:INTEGER;x_new:INTEGER;y_new:INTEGER;char:CHARACTER]]
 		-- a history list of user invoked operations
 		-- implementation
 
 
 feature -- queries
-	item: MOVE
+	item: TUPLE[INTEGER,INTEGER,INTEGER,INTEGER,CHARACTER]
 			-- Cursor points to this user operation
 		require
 			on_item
@@ -51,7 +51,7 @@ feature -- queries
 		end
 
 feature -- comands
-	extend_history(a_op: MOVE)
+	extend_history(a_op: TUPLE[INTEGER,INTEGER,INTEGER,INTEGER,CHARACTER])
 			-- remove all operations to the right of the current
 			-- cursor in history, then extend with `a_op'
 		do

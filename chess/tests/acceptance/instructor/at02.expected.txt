@@ -1,4 +1,4 @@
-  ok, K = King and N = Knight:
+5)  ok, K = King and N = Knight:
 ->play(5)
   ok:
   K____

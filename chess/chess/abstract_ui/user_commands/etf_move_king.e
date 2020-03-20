@@ -19,21 +19,24 @@ feature -- command
 			new_square: SQUARE
 			old_square: SQUARE
 			l_x,l_y: INTEGER
-			op: MOVE_KING
+			mk: MOVE_KING
 			moves: ARRAY[SQUARE]
+			movement : TUPLE[x_old:INTEGER;y_old:INTEGER;x_new:INTEGER;y_new:INTEGER;char:CHARACTER]
     	do
 
-			-- create move op
+			-- create move mk
 			old_square := model.board.king_position
 			l_x := square.x.as_integer_32
 			l_y := square.y.as_integer_32
 			create new_square.make (l_x, l_y)
-			create op.make (new_square)
-			moves := op.moves (old_square.x, old_square.y)
+			create mk.make (new_square)
+			create movement.default_create
+			movement := [old_square.x,old_square.y,l_x,l_y,'K']
+			moves := mk.moves (old_square.x, old_square.y)
 			if moves.has (new_square) then
-				model.board.history.extend_history (op)
+				model.board.history.extend_history (movement)
 				model.set_message ("ok")
-				op.execute
+				mk.execute
 			else
 				model.set_message ("invalid move")
 			end

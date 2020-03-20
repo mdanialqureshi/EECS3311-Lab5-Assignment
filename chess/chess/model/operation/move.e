@@ -70,12 +70,12 @@ feature -- deferred commands
 	execute
 		deferred
 		end
-	undo
-		deferred
-		end
+--	undo
+--		deferred
+--		end
 
-	redo
-		deferred
-		end
+--	redo
+--		deferred
+--		end
 
 end
