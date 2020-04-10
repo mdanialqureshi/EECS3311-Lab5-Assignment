@@ -20,6 +20,7 @@ feature -- command
     	do
 			-- setup board
 			if not model.board.started then
+				model.reset
 				model.make_board (size)
 				model.board.set_started
 				create square.make (size,size)

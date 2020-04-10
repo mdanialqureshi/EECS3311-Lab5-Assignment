@@ -52,6 +52,8 @@ feature -- positions
     		implementation.put ('_', king_position.x, king_position.y)
     		implementation.put ('K', a_square.x, a_square.y)
 			king_position := a_square
+			ensure
+				king_moved: not (king_position = old king_position)
     	end
 
     move_knight(a_square: SQUARE)
@@ -60,6 +62,8 @@ feature -- positions
     		implementation.put ('N', a_square.x, a_square.y)
 			knight_position := a_square
     		-- To Do
+    		ensure
+				knight_moved: not (knight_position = old knight_position)
     	end
 
 

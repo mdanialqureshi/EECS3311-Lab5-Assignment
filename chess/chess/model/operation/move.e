@@ -18,7 +18,7 @@ feature{NONE}
 			-- access board via singleton
 		local
 			ma: GAME_ACCESS
-		once
+		do
 			Result := ma.m.board
 		end
 
